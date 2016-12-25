@@ -1,1 +1,36 @@
-- Whatever
+Assets:
+- Level Assets[3D]:
+    - 9-15 platforms *mj
+    - Starting Hut / House *heppy
+    - Random Ruins / pillars -hints
+    - Ending Portal *mj 
+    - Buttons! x 2 (Starting) & (Ending) *heppy
+    - Gates Start & Ending *heppy
+    - Grass / Bush pieces / Stones
+
+- Character Assets[3D]:
+    - Character (low poly) with 3 animations [idle, run, jump] *heppy
+    - Visuals for movement 
+
+Level Layout:
+    - Simple starting level (platformer) *mj
+    - Spawn Point *mj
+    - Death pickup
+
+
+Scripting:
+    - Character Controller
+    - Simple Camera follower
+    - Simple Button Handler
+    - Simple Timer Handler
+    - Simple Death Pickup
+    - Simple Time Booster
+
+**********
+Extra ideas:
+- Random placement of special items (time booster, speed booster, time altering)
+- Possible idea for slow-to fast movement speed/momentum increase. (start moving semi slow and the longer you run the faster you go)
+$ Time booster: Increase time by x amount.
+$ Speed booster: Increase character movement speed for x amount of time by x amount.
+$ Time altering: Could give longer jumps.
+$ Stats increase.
