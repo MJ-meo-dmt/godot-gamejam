@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=1]
 
-[ext_resource path="res://imports/platform_0.scn" type="PackedScene" id=1]
+[ext_resource path="res://levels/level_0.scn" type="PackedScene" id=1]
 
 [sub_resource type="Environment" id=1]
 
@@ -63,41 +63,7 @@ environment = SubResource( 1 )
 h_offset = 0.0
 v_offset = 0.0
 
-[node name="DirectionalLight" type="DirectionalLight" parent="."]
-
-_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 1, 0, 0, 0, 0.423182, 0.906045, 0, -0.906045, 0.423182, 0, 0, 0 )
-layers = 1
-params/enabled = true
-params/editor_only = false
-params/bake_mode = 0
-params/energy = 1.0
-colors/diffuse = Color( 1, 1, 1, 1 )
-colors/specular = Color( 1, 1, 1, 1 )
-shadow/shadow = false
-shadow/darkening = 0.0
-shadow/z_offset = 0.05
-shadow/z_slope_scale = 0.0
-shadow/esm_multiplier = 60.0
-shadow/blur_passes = 1.0
-projector = null
-operator = 0
-shadow/mode = 0
-shadow/max_distance = 0.0
-shadow/split_weight = 0.5
-shadow/zoffset_scale = 2.0
-
 [node name="platform_0" parent="." instance=ExtResource( 1 )]
-
-transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0597153 )
-
-[node name="stone3" parent="platform_0"]
-
-transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00966889, 0, 0 )
-
-[node name="plat0" parent="platform_0"]
-
-transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.16046, -0.457448, 0 )
 
 
 [editable path="platform_0"]
