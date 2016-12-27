@@ -1,4 +1,4 @@
-Assets:
+`Assets:
 - Level Assets[3D]:
     - 9-15 platforms *mj
     - Starting Hut / House *heppy
@@ -13,14 +13,14 @@ Assets:
     - Visuals for movement 
 
 Level Layout:
-    - Simple starting level (platformer) *mj
-    - Spawn Point *mj
-    - Death pickup
+    - Simple starting level (platformer)*mj [DONE]
+    - Spawn Point *mj [DONE] - not functioning
+    - Death pickup [DONE] - not functioning
 
 
 Scripting:
-    - Character Controller
-    - Simple Camera follower
+    - Character Controller [DONE]
+    - Simple Camera follower [DONE]
     - Simple Button Handler
     - Simple Timer Handler
     - Simple Death Pickup
