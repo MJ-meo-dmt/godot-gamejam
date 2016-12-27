@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://levels/level_0.scn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/camera.gd" type="Script" id=3]
 
-[sub_resource type="Environment" id=1]
+[sub_resource type="Environment" id=2]
 
 ambient_light/enabled = true
 ambient_light/color = Color( 0.0773621, 0.0970249, 0.101562, 1 )
@@ -48,7 +50,15 @@ srgb/enabled = false
 
 [node name="Game" type="Node"]
 
-[node name="Camera" type="Camera" parent="."]
+[node name="platform_0" parent="." instance=ExtResource( 1 )]
+
+editor/display_folded = true
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.41339, 0.355576, 0 )
+
+[node name="Camera" type="Camera" parent="Player/KinematicBody"]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 transform/local = Transform( 1, 0, 0, 0, 0.94796, 0.318388, 0, -0.318388, 0.94796, 0, 1.48893, 4.28892 )
@@ -59,11 +69,11 @@ far = 100.0
 keep_aspect = 1
 current = false
 visible_layers = 1048575
-environment = SubResource( 1 )
+environment = SubResource( 2 )
 h_offset = 0.0
 v_offset = 0.0
-
-[node name="platform_0" parent="." instance=ExtResource( 1 )]
+script/script = ExtResource( 3 )
 
 
 [editable path="platform_0"]
+[editable path="Player"]
