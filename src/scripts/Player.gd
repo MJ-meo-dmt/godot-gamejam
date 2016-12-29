@@ -6,12 +6,17 @@ const moveSpeed = 120
 const jumpSpeed = 300
 var velocity = Vector3()
 var canJump = false
+var otherBody
+var moving = false
 
 var body
+var anim
 
 func _ready():
 	body = get_node("KinematicBody")
+	anim = get_node("AnimationPlayer")
 	set_fixed_process(true)
+	set_process(true)
 	
 func _fixed_process(delta):
 	velocity.y += gravity * delta
@@ -28,14 +33,19 @@ func _fixed_process(delta):
 
 	# When only moving left or right without jump and or jumping alone.
 	if (Input.is_action_pressed("move-left")):
+		body.set_rotation(Vector3(0, -90, 0))
 		velocity.x = -moveSpeed * delta
+		moving = true
 	elif (Input.is_action_pressed("move-right")):
+		body.set_rotation(Vector3(0, 90, 0))
 		velocity.x = moveSpeed * delta
+		moving = true
 	elif (Input.is_action_pressed("move-jump") and canJump):
 		velocity.y = jumpSpeed * delta
 		canJump = false
 	else:
 		velocity.x = 0
+		moving = false
 	
 	var motion = velocity * delta
 	body.move(motion)
@@ -46,3 +56,10 @@ func _fixed_process(delta):
 		motion = n.slide(motion)
 		velocity = n.slide(velocity)
 		body.move(motion)
+		
+func _process(delta):
+	if(moving):
+		if(!anim.is_playing()):
+			anim.play("ArmatureAction", -1, 1, false)
+	else:
+		anim.stop(true)
