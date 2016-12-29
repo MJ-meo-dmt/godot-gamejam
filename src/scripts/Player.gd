@@ -61,5 +61,5 @@ func _process(delta):
 	if(moving):
 		if(!anim.is_playing()):
 			anim.play("ArmatureAction", -1, 1, false)
-	else:
+	elif(!moving):
 		anim.stop(true)
