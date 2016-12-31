@@ -1,16 +1,16 @@
 `Assets:
 - Level Assets[3D]:
     - 9-15 platforms *mj
-    - Starting Hut / House *heppy
+    - Starting Hut / House *heppy [DONE]
     - Random Ruins / pillars -hints
     - Ending Portal *mj 
     - Buttons! x 2 (Starting) & (Ending) *heppy
-    - Gates Start & Ending *heppy
+    - Gates Start & Ending *heppy [DONE]
     - Grass / Bush pieces / Stones
 
 - Character Assets[3D]:
-    - Character (low poly) with 3 animations [idle, run, jump] *heppy
-    - Visuals for movement 
+    - Character (low poly) with 3 animations [idle, run, jump] *heppy [DONE]
+    - Visuals for movement [CORRECTING]
 
 Level Layout:
     - Simple starting level (platformer)*mj [DONE]
