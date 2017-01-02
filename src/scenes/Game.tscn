@@ -4,7 +4,7 @@
 [ext_resource path="res://imports/FinalCharacter_01.scn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/camera.gd" type="Script" id=3]
 
-[sub_resource type="Environment" id=6]
+[sub_resource type="Environment" id=1]
 
 ambient_light/enabled = true
 ambient_light/color = Color( 0.0773621, 0.0970249, 0.101562, 1 )
@@ -56,6 +56,7 @@ editor/display_folded = true
 
 [node name="FinalCharacter_1" parent="." instance=ExtResource( 2 )]
 
+editor/display_folded = true
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.87195, 0.437256, 0 )
 
 [node name="Camera" type="Camera" parent="."]
@@ -69,7 +70,7 @@ far = 100.0
 keep_aspect = 1
 current = false
 visible_layers = 1048575
-environment = SubResource( 6 )
+environment = SubResource( 1 )
 h_offset = 0.0
 v_offset = 0.0
 script/script = ExtResource( 3 )
