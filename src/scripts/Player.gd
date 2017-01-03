@@ -13,7 +13,7 @@ var body
 var anim
 
 func _ready():
-	body = get_node("KinematicBody")
+	body = get_node("PlayerBody")
 	anim = get_node("AnimationPlayer")
 	set_fixed_process(true)
 	set_process(true)
@@ -44,10 +44,6 @@ func _fixed_process(delta):
 		velocity.y = jumpSpeed * delta
 		canJump = false
 	else:
-		moving = false
-	
-	if(body.is_colliding()):
-		velocity.x = 0
 		moving = false
 	
 	var motion = velocity * delta
