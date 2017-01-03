@@ -44,6 +44,9 @@ func _fixed_process(delta):
 		velocity.y = jumpSpeed * delta
 		canJump = false
 	else:
+		moving = false
+	
+	if(body.is_colliding()):
 		velocity.x = 0
 		moving = false
 	
@@ -56,6 +59,7 @@ func _fixed_process(delta):
 		motion = n.slide(motion)
 		velocity = n.slide(velocity)
 		body.move(motion)
+		velocity.x = 0
 		
 func _process(delta):
 	if(moving):
