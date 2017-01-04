@@ -10,6 +10,12 @@ func _ready():
 	# Initialization here
 	area = get_node("Area")
 	area.connect("body_enter", self, "body_enter")
+	area.connect("body_exit", self, "body_exit")
 
 func body_enter(body):
-	print(body.get_name())
+	if(body.get_name() == "PlayerBody"):
+		print(body.get_name())
+		get_tree().get_root().get_node("Game/UI/Panel").show()
+
+func body_exit(body):
+	get_tree().get_root().get_node("Game/UI/Panel").hide()
