@@ -12,11 +12,16 @@ var moving = false
 var body
 var anim
 
+# Player checks on button use
+var Game
+
 func _ready():
 	body = get_node("PlayerBody")
 	anim = get_node("AnimationPlayer")
 	set_fixed_process(true)
 	set_process(true)
+	
+	Game = get_tree().get_root().get_node("Game")
 	
 func _fixed_process(delta):
 	velocity.y += gravity * delta
@@ -63,3 +68,7 @@ func _process(delta):
 			anim.play("ArmatureAction", -1, 1, false)
 	elif(!moving):
 		anim.stop(true)
+	
+	# Check if player is pressing button
+	if(Input.is_action_pressed("use") and Game.isNearButton == true):
+		print ("Something is being pressed!")

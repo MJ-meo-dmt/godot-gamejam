@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=1]
+[gd_scene load_steps=16 format=1]
 
-[ext_resource path="res://levels/level_0.scn" type="PackedScene" id=1]
-[ext_resource path="res://scripts/Player.gd" type="Script" id=2]
-[ext_resource path="res://character/FinalCharacter_01.tres" type="Animation" id=3]
-[ext_resource path="res://scripts/camera.gd" type="Script" id=4]
-[ext_resource path="res://scripts/button.gd" type="Script" id=5]
+[ext_resource path="res://scenes/Game.gd" type="Script" id=1]
+[ext_resource path="res://levels/level_0.scn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/Player.gd" type="Script" id=3]
+[ext_resource path="res://character/FinalCharacter_01.tres" type="Animation" id=4]
+[ext_resource path="res://scripts/camera.gd" type="Script" id=5]
+[ext_resource path="res://scripts/button.gd" type="Script" id=6]
 
 [sub_resource type="CapsuleShape" id=1]
 
@@ -370,7 +371,9 @@ custom_aabb/custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 
 [node name="Game" type="Node"]
 
-[node name="platform_0" parent="." instance=ExtResource( 1 )]
+script/script = ExtResource( 1 )
+
+[node name="platform_0" parent="." instance=ExtResource( 2 )]
 
 editor/display_folded = true
 
@@ -380,7 +383,7 @@ _import_path = NodePath(".")
 editor/display_folded = true
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.74032, 0.437256, 0 )
-script/script = ExtResource( 2 )
+script/script = ExtResource( 3 )
 
 [node name="PlayerBody" type="KinematicBody" parent="FinalCharacter_1"]
 
@@ -553,7 +556,7 @@ _import_path = NodePath("AnimationPlayer")
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/ArmatureAction = ExtResource( 3 )
+anims/ArmatureAction = ExtResource( 4 )
 anims/Run = SubResource( 3 )
 anims/default = SubResource( 4 )
 playback/active = true
@@ -575,7 +578,7 @@ visible_layers = 1048575
 environment = SubResource( 5 )
 h_offset = 0.0
 v_offset = 0.0
-script/script = ExtResource( 4 )
+script/script = ExtResource( 5 )
 
 [node name="Button_1" type="Spatial" parent="."]
 
@@ -583,7 +586,7 @@ _import_path = NodePath(".")
 editor/display_folded = true
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.18677, 0.012207, -0.415771 )
-script/script = ExtResource( 5 )
+script/script = ExtResource( 6 )
 
 [node name="Area" type="Area" parent="Button_1"]
 
@@ -673,6 +676,32 @@ margin/top = 3.0
 margin/right = 306.0
 margin/bottom = 17.0
 text = "Press \'e\' to start!"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="TimerPanel" type="Panel" parent="UI"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 324.0
+margin/bottom = 30.0
+
+[node name="Label" type="Label" parent="UI/TimerPanel"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 9.0
+margin/top = 8.0
+margin/right = 316.0
+margin/bottom = 22.0
+text = "Timer Label placeholder text"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
