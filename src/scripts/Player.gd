@@ -70,5 +70,6 @@ func _process(delta):
 		anim.stop(true)
 	
 	# Check if player is pressing button
-	if(Input.is_action_pressed("use") and Game.isNearButton == true):
-		print ("Something is being pressed!")
+	if(Input.is_action_just_pressed("use") and Game.isNearButton == true):
+		# Start the timer
+		Game.timer()
