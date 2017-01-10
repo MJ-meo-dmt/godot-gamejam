@@ -16,6 +16,7 @@ func body_enter(body):
 	if(body.get_name() == "PlayerBody"):
 		print(body.get_name())
 		get_tree().get_root().get_node("Game/UI/Panel").show()
+		get_tree().get_root().get_node("Game/UI/Panel/Label").set_text("Press 'e' to stop timer")
 		get_tree().get_root().get_node("Game").isNearEndButton = true
 
 func body_exit(body):
