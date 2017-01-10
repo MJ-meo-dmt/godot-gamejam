@@ -13,6 +13,8 @@ func _ready():
 	add_child(timerNode)
 	timerNode.connect("timeout", self, "TimeOut")
 	
+	# Start processes
+	set_fixed_process(true)
 	set_process(true)
 
 # Gets called via 'e'
@@ -33,3 +35,6 @@ func TimeOut():
 func _process(delta):
 	if(timerNode.is_active()):
 		get_node("UI/TimerPanel/Label").set_text("Time Remaining: " + str(timerNode.get_time_left()))
+
+func _fixed_process(delta):
+	get_node("UI/FPS/Label").set_text("FPS: " + str(OS.get_frames_per_second()))
