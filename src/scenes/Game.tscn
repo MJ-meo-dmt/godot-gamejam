@@ -1429,6 +1429,7 @@ max_lines_visible = -1
 
 [node name="FPS" type="Panel" parent="UI"]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -1469,9 +1470,45 @@ shortcut = null
 text = "Reset!"
 flat = false
 
+[node name="Boons" type="Control" parent="UI"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+
+[node name="Panel" type="Panel" parent="UI/Boons"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 86.0
+margin/top = 35.0
+margin/right = 272.0
+margin/bottom = 56.0
+
+[node name="Label" type="Label" parent="UI/Boons/Panel"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 10.0
+margin/top = 3.0
+margin/right = 178.0
+margin/bottom = 17.0
+text = "Chip:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="Potion" type="Spatial" parent="."]
 
-editor/display_folded = true
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0237613, 0.0571747, 0 )
 script/script = ExtResource( 7 )

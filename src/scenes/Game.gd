@@ -8,7 +8,11 @@ var deathPlane
 var player
 var spawnPoint
 
+var slowtimerScene
+var slowtimerNode
+
 var levelTime = 15.0
+var st
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -28,8 +32,9 @@ func _ready():
 	add_child(timerNode)
 	timerNode.connect("timeout", self, "TimeOut")
 
-	# Reset Player
-	
+	# Boons
+	slowtimerScene = load("res://scenes/Potion.tscn")
+	st = null
 	
 	# Start processes
 	set_fixed_process(true)
@@ -39,6 +44,10 @@ func handleDeath(body):
 	print("Reset player position")
 	player.get_node("PlayerBody").set_transform(spawnPoint.get_global_transform())
 	
+	# Reset Chips
+	#slowtimerNode = slowtimerScene.instance()
+	#print (slowtimerNode)
+	
 
 # Gets called via 'e'
 func timer():
@@ -46,6 +55,20 @@ func timer():
 	timerNode.set_wait_time(levelTime)
 	timerNode.start()
 	set_process(true)
+
+func slowtimer():
+	timerNode.set_active(false)
+	st = Timer.new()
+	add_child(st)
+	st.connect("timeout", self, "slowtimer_timeout")
+	st.set_one_shot(true)
+	st.set_wait_time(2.5)
+	st.start()
+
+func slowtimer_timeout():
+	get_node("UI/Boons/Panel/Label").set_text("Chip Time: ")
+	timerNode.set_active(true)
+	st = null
 
 func stopTimer():
 	set_process(false)
@@ -58,6 +81,10 @@ func TimeOut():
 func _process(delta):
 	if(timerNode.is_active()):
 		get_node("UI/TimerPanel/Label").set_text("Time Remaining: " + str(timerNode.get_time_left()))
+	
+	else:
+		if(st != null):
+			get_node("UI/Boons/Panel/Label").set_text("Chip Time: " + str(st.get_time_left()))
 
 func _fixed_process(delta):
 	get_node("UI/FPS/Label").set_text("FPS: " + str(OS.get_frames_per_second()))

@@ -29,8 +29,24 @@ Scripting:
 **********
 Extra ideas:
 - Random placement of special items (time booster, speed booster, time altering)
-- Possible idea for slow-to fast movement speed/momentum increase. (start moving semi slow and the longer you run the faster you go)
+- Possible idea for slow-to fast movement speed/momentum increase. (start moving semi slow and the longer
+you run the faster you go)
 $ Time booster: Increase time by x amount.
 $ Speed booster: Increase character movement speed for x amount of time by x amount.
 $ Time altering: Could give longer jumps.
 $ Stats increase.
+
+
+WIP WIP WIP
+# STORY # (The world is projected its fake, what you see could be anything in this world the drone is stuck in)
+You play a broken drone(robot)
+This takes place in a broken world.
+The world also contain "chips", these "chips" affect the drone directly or indirectly.
+"Chips": Time Slow, Speed Booster, Instant effect chips could have any effect on the drone. For instance 
+change the controls around so that the player gets confused for some time. (?or perm) 
+
+
+The player could have a chip board which acts the same way a backpack would.
+Player could activate chips from his bag whenever
+WIP WIP WIP
+
