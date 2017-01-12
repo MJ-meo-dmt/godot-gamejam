@@ -4,9 +4,22 @@ var isNearStartButton
 var isNearEndButton
 var timerNode
 
+var deathPlane
+var player
+var spawnPoint
+
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
+	# Deathplane
+	deathPlane = get_node("platform_0/DeathPlane")
+	deathPlane.connect("body_enter", self, "handleDeath")
+	
+	# Player
+	player = get_node("FinalCharacter_1")
+	spawnPoint = get_node("platform_0/PlayerSpawn/SpawnPoint")
+	
+	# Timer setting
 	isNearStartButton = false
 	isNearEndButton = false
 	timerNode = Timer.new()
@@ -16,6 +29,11 @@ func _ready():
 	# Start processes
 	set_fixed_process(true)
 	set_process(true)
+
+func handleDeath(body):
+	print("Reset player position")
+	#player.set_translation(spawnPoint.get_translation())
+	
 
 # Gets called via 'e'
 func timer():
