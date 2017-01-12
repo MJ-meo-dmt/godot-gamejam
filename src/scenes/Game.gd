@@ -8,6 +8,8 @@ var deathPlane
 var player
 var spawnPoint
 
+var levelTime = 15.0
+
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
@@ -17,7 +19,7 @@ func _ready():
 	
 	# Player
 	player = get_node("FinalCharacter_1")
-	spawnPoint = get_node("platform_0/PlayerSpawn/SpawnPoint")
+	spawnPoint = get_node("SpawnPoint")
 	
 	# Timer setting
 	isNearStartButton = false
@@ -25,6 +27,9 @@ func _ready():
 	timerNode = Timer.new()
 	add_child(timerNode)
 	timerNode.connect("timeout", self, "TimeOut")
+
+	# Reset Player
+	
 	
 	# Start processes
 	set_fixed_process(true)
@@ -32,13 +37,13 @@ func _ready():
 
 func handleDeath(body):
 	print("Reset player position")
-	#player.set_translation(spawnPoint.get_translation())
+	player.get_node("PlayerBody").set_transform(spawnPoint.get_global_transform())
 	
 
 # Gets called via 'e'
 func timer():
 	timerNode.set_one_shot(true)
-	timerNode.set_wait_time(8)
+	timerNode.set_wait_time(levelTime)
 	timerNode.start()
 	set_process(true)
 

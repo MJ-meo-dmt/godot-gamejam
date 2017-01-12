@@ -14,5 +14,5 @@ func _ready():
 
 func _process(delta):
 	var target = player.get_translation()
-	set_translation(target + Vector3(-5.85, 1.9, 4.4))
+	set_translation(target + Vector3(-5.87195, 0.839886, 7.640726))
 	
