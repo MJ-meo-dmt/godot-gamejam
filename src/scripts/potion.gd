@@ -18,7 +18,7 @@ func _ready():
 func body_enter(body):
 	if(body.get_name() == "PlayerBody"):
 		print("Player hit with potion")
-		print("Slowing time! for 30 sec")
+		print("Slowing time! for " + str(Game.slowBoon) + " sec")
 		Game.slowtimer()
-		#queue_free()
+		hide()
 

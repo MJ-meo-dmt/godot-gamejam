@@ -11,7 +11,8 @@ var spawnPoint
 var slowtimerScene
 var slowtimerNode
 
-var levelTime = 15.0
+var levelTime = 20.0
+var slowBoon = 4.0
 var st
 
 func _ready():
@@ -43,6 +44,8 @@ func _ready():
 func handleDeath(body):
 	print("Reset player position")
 	player.get_node("PlayerBody").set_transform(spawnPoint.get_global_transform())
+	get_node("platform_0/EndPlatform").set_rotation( Vector3(0, 0, 0))
+	get_node("Potion").show()
 	
 	# Reset Chips
 	#slowtimerNode = slowtimerScene.instance()
@@ -62,7 +65,7 @@ func slowtimer():
 	add_child(st)
 	st.connect("timeout", self, "slowtimer_timeout")
 	st.set_one_shot(true)
-	st.set_wait_time(2.5)
+	st.set_wait_time(slowBoon)
 	st.start()
 
 func slowtimer_timeout():
