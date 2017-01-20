@@ -576,18 +576,18 @@ bcs/contrast = 1.0
 bcs/saturation = 0.75
 srgb/enabled = false
 
-[sub_resource type="DynamicFont" id=26]
+[sub_resource type="DynamicFont" id=24]
 
 font/size = 25
 font/use_mipmaps = false
 font/use_filter = false
 font/font = ExtResource( 9 )
 
-[sub_resource type="SphereShape" id=24]
+[sub_resource type="SphereShape" id=25]
 
 radius = 0.235293
 
-[sub_resource type="FixedMaterial" id=25]
+[sub_resource type="FixedMaterial" id=26]
 
 flags/visible = true
 flags/double_sided = false
@@ -1752,7 +1752,7 @@ margin/left = 5.0
 margin/top = 3.0
 margin/right = 200.0
 margin/bottom = 32.0
-custom_fonts/font = SubResource( 26 )
+custom_fonts/font = SubResource( 24 )
 text = "Chip:"
 percent_visible = 1.0
 lines_skipped = 0
@@ -1771,7 +1771,7 @@ _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 input/ray_pickable = false
 input/capture_on_drag = false
 shape_count = 1
-shapes/0/shape = SubResource( 24 )
+shapes/0/shape = SubResource( 25 )
 shapes/0/transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shapes/0/trigger = true
 space_override = 0
@@ -1790,7 +1790,7 @@ collision/mask = 1
 [node name="CollisionShape" type="CollisionShape" parent="Potion/Area"]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 24 )
+shape = SubResource( 25 )
 trigger = true
 _update_shape_index = 0
 
@@ -1799,7 +1799,7 @@ _update_shape_index = 0
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 layers = 1
 geometry/visible = true
-geometry/material_override = SubResource( 25 )
+geometry/material_override = SubResource( 26 )
 geometry/cast_shadow = 0
 geometry/receive_shadows = false
 geometry/range_begin = 0.0
