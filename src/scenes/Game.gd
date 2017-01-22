@@ -44,6 +44,7 @@ func _ready():
 func handleDeath(body):
 	print("Reset player position")
 	player.get_node("PlayerBody").set_transform(spawnPoint.get_global_transform())
+	player.totalJumps = 0
 	get_node("platform_0/EndPlatform").set_rotation( Vector3(0, 0, 0))
 	get_node("Potion").show()
 	
@@ -69,13 +70,20 @@ func slowtimer():
 	st.start()
 
 func slowtimer_timeout():
-	get_node("UI/Boons/Panel/Label").set_text("Chip Time: ")
+	get_node("UI/InfoUI/Boons/Panel/Label").set_text("Chip Time: ")
 	timerNode.set_active(true)
 	st = null
 
 func stopTimer():
 	set_process(false)
+	var timeLeft = timerNode.get_time_left()
 	timerNode.stop()
+	# Game end button has been pressed Hide rest of UI and display endgamepanel
+	var endGamePanel = get_node("UI/EndGamePanel")
+	get_node("UI/InfoUI").hide()
+	endGamePanel.show()
+	endGamePanel.get_node("TimeLeft/value").set_text(str(timeLeft))
+	endGamePanel.get_node("TotalJumps/value").set_text(str(player.totalJumps))
 	
 func TimeOut():
 	print ("timer done")
@@ -83,11 +91,11 @@ func TimeOut():
 
 func _process(delta):
 	if(timerNode.is_active()):
-		get_node("UI/TimerPanel/Label").set_text("Time Remaining: " + str(timerNode.get_time_left()))
+		get_node("UI/InfoUI/TimerPanel/Label").set_text("Time Remaining: " + str(timerNode.get_time_left()))
 	
 	else:
 		if(st != null):
-			get_node("UI/Boons/Panel/Label").set_text("Chip Time: " + str(st.get_time_left()))
+			get_node("UI/InfoUI/Boons/Panel/Label").set_text("Chip Time: " + str(st.get_time_left()))
 
 func _fixed_process(delta):
-	get_node("UI/FPS/Label").set_text("FPS: " + str(OS.get_frames_per_second()))
+	get_node("UI/DebugUI/FPS/Label").set_text("FPS: " + str(OS.get_frames_per_second()))

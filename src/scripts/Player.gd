@@ -14,6 +14,7 @@ var anim
 
 # Player checks on button use
 var Game
+var totalJumps = 0
 
 func _ready():
 	body = get_node("PlayerBody")
@@ -31,10 +32,12 @@ func _fixed_process(delta):
 		velocity.x = -moveSpeed * delta
 		velocity.y = jumpSpeed * delta
 		canJump = false
+		totalJumps += 1
 	elif (Input.is_action_pressed("move-right") and Input.is_action_pressed("move-jump") and canJump):
 		velocity.x = moveSpeed * delta
 		velocity.y = jumpSpeed * delta
 		canJump = false
+		totalJumps += 1
 
 	# When only moving left or right without jump and or jumping alone.
 	if (Input.is_action_pressed("move-left")):
@@ -48,6 +51,7 @@ func _fixed_process(delta):
 	elif (Input.is_action_pressed("move-jump") and canJump):
 		velocity.y = jumpSpeed * delta
 		canJump = false
+		totalJumps += 1
 	else:
 		moving = false
 	

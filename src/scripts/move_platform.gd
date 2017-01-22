@@ -20,4 +20,4 @@ func body_exit(body):
 		
 func _process(delta):
 	if(doRotate == true):
-		set_rotation(get_rotation() + Vector3(0, 0, -0.8 * delta))
+		set_rotation(get_rotation() + Vector3(0, 0, -1.4 * delta))
