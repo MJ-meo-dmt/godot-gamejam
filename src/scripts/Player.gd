@@ -19,10 +19,15 @@ var totalJumps = 0
 func _ready():
 	body = get_node("PlayerBody")
 	anim = get_node("AnimationPlayer")
+	Game = get_tree().get_root().get_node("Game")
+	
+func startGame():
 	set_fixed_process(true)
 	set_process(true)
-	
-	Game = get_tree().get_root().get_node("Game")
+
+func stopGame():
+	set_process(false)
+	set_fixed_process(false)
 	
 func _fixed_process(delta):
 	velocity.y += gravity * delta
