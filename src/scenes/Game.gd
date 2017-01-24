@@ -15,6 +15,8 @@ var levelTime = 20.0
 var slowBoon = 4.0
 var st
 
+var isMenuOpen = false
+
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
@@ -114,10 +116,31 @@ func doRedo():
 func _process(delta):
 	if(timerNode.is_active()):
 		get_node("UI/InfoUI/TimerPanel/Label").set_text("Time Remaining: " + str(timerNode.get_time_left()))
-	
+		get_node("UI/InfoUI/Boons/JumpsCounter/Value").set_text("Jumps: "+str(player.totalJumps))
 	else:
 		if(st != null):
 			get_node("UI/InfoUI/Boons/Panel/Label").set_text("Chip Time: " + str(st.get_time_left()))
+	
+	if(Input.is_action_just_pressed("open_menu")):
+		if(isMenuOpen):
+			doPauseHideMenu()
+		else:
+			doPauseShowMenu()
 
 func _fixed_process(delta):
 	get_node("UI/DebugUI/FPS/Label").set_text("FPS: " + str(OS.get_frames_per_second()))
+
+
+# Simple menu methods
+func doPauseShowMenu():
+	#get_node("UI/InfoUI").hide()
+	get_node("UI/Menu").show()
+	timerNode.set_pause_mode(true)
+	player.stopGame()
+	isMenuOpen = true
+	
+func doPauseHideMenu():
+	get_node("UI/Menu").hide()
+	timerNode.set_pause_mode(false)
+	player.startGame()
+	isMenuOpen = false

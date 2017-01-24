@@ -32,17 +32,20 @@ func stopGame():
 func _fixed_process(delta):
 	velocity.y += gravity * delta
 	
+	# Count jumps
+	if(Input.is_action_just_pressed("move-jump")):
+		totalJumps += 1
+	
 	# When moving left or right while trying to jump
 	if (Input.is_action_pressed("move-left") and Input.is_action_pressed("move-jump") and canJump):
 		velocity.x = -moveSpeed * delta
 		velocity.y = jumpSpeed * delta
 		canJump = false
-		totalJumps += 1
+
 	elif (Input.is_action_pressed("move-right") and Input.is_action_pressed("move-jump") and canJump):
 		velocity.x = moveSpeed * delta
 		velocity.y = jumpSpeed * delta
 		canJump = false
-		totalJumps += 1
 
 	# When only moving left or right without jump and or jumping alone.
 	if (Input.is_action_pressed("move-left")):
@@ -56,7 +59,6 @@ func _fixed_process(delta):
 	elif (Input.is_action_pressed("move-jump") and canJump):
 		velocity.y = jumpSpeed * delta
 		canJump = false
-		totalJumps += 1
 	else:
 		moving = false
 	
@@ -85,3 +87,4 @@ func _process(delta):
 	
 	if(Input.is_action_just_pressed("use") and Game.isNearEndButton == true):
 		Game.stopTimer()
+	
