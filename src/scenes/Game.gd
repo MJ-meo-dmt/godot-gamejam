@@ -45,6 +45,8 @@ func _ready():
 	get_node("UI/Menu/PlayGameBtn").connect("button_down", self, "startGame")
 	# Connect ExitButton
 	get_node("UI/Menu/ExitBtn").connect("button_down", self, "exitGame")
+	# Connect High score btn
+	get_node("UI/Menu/HighScoreBtn").connect("button_down", self, "ShowHighScore")
 	
 func startGame():
 	# Start processes
@@ -56,6 +58,9 @@ func startGame():
 
 func exitGame():
 	get_tree().quit()
+
+func ShowHighScore():
+	get_node("UI/Menu/Info").hide()
 
 func handleDeath(body=false):
 	print("Reset player position")

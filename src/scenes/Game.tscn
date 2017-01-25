@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=1]
+[gd_scene load_steps=42 format=1]
 
 [ext_resource path="res://scenes/Game.gd" type="Script" id=1]
 [ext_resource path="res://scripts/move_platform.gd" type="Script" id=2]
@@ -9,12 +9,8 @@
 [ext_resource path="res://scripts/button.gd" type="Script" id=7]
 [ext_resource path="res://fonts/CustomFont.res" type="DynamicFont" id=8]
 [ext_resource path="res://fonts/DroidSans.ttf" type="DynamicFontData" id=9]
-[ext_resource path="res://images/Left.png" type="Texture" id=10]
-[ext_resource path="res://images/Right.png" type="Texture" id=11]
-[ext_resource path="res://images/Jump.png" type="Texture" id=12]
-[ext_resource path="res://images/Use.png" type="Texture" id=13]
-[ext_resource path="res://scripts/potion.gd" type="Script" id=14]
-[ext_resource path="res://images/potion.png" type="Texture" id=15]
+[ext_resource path="res://scripts/potion.gd" type="Script" id=10]
+[ext_resource path="res://images/potion.png" type="Texture" id=11]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -703,7 +699,7 @@ params/shader_param = 0.5
 params/glow = 0.1
 params/point_size = 1.0
 uv_xform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-textures/diffuse = ExtResource( 15 )
+textures/diffuse = ExtResource( 11 )
 textures/diffuse_tc = 0
 textures/detail_tc = 0
 textures/specular_tc = 0
@@ -1742,6 +1738,7 @@ max_lines_visible = -1
 
 [node name="TimeLeft" type="Label" parent="UI/EndGamePanel"]
 
+editor/display_folded = true
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -1772,6 +1769,7 @@ max_lines_visible = -1
 
 [node name="TotalJumps" type="Label" parent="UI/EndGamePanel"]
 
+editor/display_folded = true
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -1802,6 +1800,7 @@ max_lines_visible = -1
 
 [node name="Points" type="Label" parent="UI/EndGamePanel"]
 
+editor/display_folded = true
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -1840,6 +1839,7 @@ margin/left = 220.0
 margin/top = 380.0
 margin/right = 300.0
 margin/bottom = 400.0
+disabled = true
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -1872,6 +1872,7 @@ margin/left = 20.0
 margin/top = 380.0
 margin/right = 102.0
 margin/bottom = 400.0
+disabled = true
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -2050,6 +2051,21 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="Label" type="Label" parent="UI/DebugUI"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 750.0
+margin/right = 80.0
+margin/bottom = 764.0
+text = "Its got bugs!"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="Menu" type="Panel" parent="UI"]
 
 editor/display_folded = true
@@ -2093,7 +2109,7 @@ shortcut = null
 text = "Play Game"
 flat = false
 
-[node name="OptionsBtn" type="Button" parent="UI/Menu"]
+[node name="HighScoreBtn" type="Button" parent="UI/Menu"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -2103,10 +2119,11 @@ margin/left = 460.0
 margin/top = 110.0
 margin/right = 560.0
 margin/bottom = 130.0
+disabled = true
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-text = "Options"
+text = "High Scores"
 flat = false
 
 [node name="ExitBtn" type="Button" parent="UI/Menu"]
@@ -2125,7 +2142,7 @@ shortcut = null
 text = "Exit"
 flat = false
 
-[node name="RichTextLabel" type="RichTextLabel" parent="UI/Menu"]
+[node name="Info" type="RichTextLabel" parent="UI/Menu"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -2139,60 +2156,24 @@ bbcode/enabled = false
 bbcode/bbcode = "HackB0t... \n\nObjective: \n\t1. Beat the clock.\n\t2. For some reason try not to jump too many times.\n\t3. Abuse the bugs.\n\t\nStory:\n\tYou play a broken robot in a broken simulation or do you\?\n\t\nKeys:\n\tLeft: \'a\' or \'left-arrow\'\n\tRight: \'d\' or \'right-arrow\'\n\tJump: \'spacebar\'\n\tUse: \'e\'"
 visible_characters = -1
 
-[node name="Left_Touch" type="TouchScreenButton" parent="UI"]
+[node name="ItemList" type="ItemList" parent="UI/Menu"]
 
 visibility/visible = false
-transform/pos = Vector2( 30, 620 )
-transform/scale = Vector2( 1.09375, 1.01563 )
-normal = ExtResource( 10 )
-pressed = null
-bitmask = null
-passby_press = false
-action = "move-left"
-visibility_mode = 0
-
-[node name="Right_Touch" type="TouchScreenButton" parent="UI"]
-
-visibility/visible = false
-transform/pos = Vector2( 230, 620 )
-transform/scale = Vector2( 1.09375, 1.01563 )
-normal = ExtResource( 11 )
-pressed = null
-bitmask = null
-passby_press = false
-action = "move-right"
-visibility_mode = 0
-
-[node name="Jump_Touch" type="TouchScreenButton" parent="UI"]
-
-visibility/visible = false
-transform/pos = Vector2( 960, 620 )
-transform/scale = Vector2( 1.875, 1.01563 )
-normal = ExtResource( 12 )
-pressed = null
-bitmask = null
-passby_press = false
-action = "move-jump"
-visibility_mode = 0
-
-[node name="Use_Touch" type="TouchScreenButton" parent="UI"]
-
-visibility/visible = false
-transform/pos = Vector2( 1080, 490 )
-transform/scale = Vector2( 0.9375, 0.703126 )
-normal = ExtResource( 13 )
-pressed = null
-bitmask = null
-passby_press = false
-action = "use"
-visibility_mode = 0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 20.0
+margin/top = 40.0
+margin/right = 430.0
+margin/bottom = 300.0
 
 [node name="Potion" type="Spatial" parent="."]
 
 editor/display_folded = true
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9978, 7.21624, 0 )
-script/script = ExtResource( 14 )
+script/script = ExtResource( 10 )
 
 [node name="Area" type="Area" parent="Potion"]
 
