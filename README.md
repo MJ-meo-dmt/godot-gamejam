@@ -1,5 +1,5 @@
 # godot-gamejam
-Godot Game Jam [12-2016]
+Godot Game Jam [12-2016] Find the entry here: [at Itch.io](https://mj-meo-dmt.itch.io/hackb0t)
 
 Godot Core is 2.2-alpha_custom build
 
